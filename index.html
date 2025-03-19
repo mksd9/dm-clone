@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ドクターマリオ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💊</text></svg>">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        <div id="game-ui">
+            <div>スコア: <span id="score">0</span></div>
+            <div>レベル: <span id="level">1</span></div>
+            <div>ウイルス: <span id="virus-count">0</span></div>
+            <div id="game-controls" style="display: none;">
+                <button id="rotate-btn">回転</button>
+                <button id="move-left-btn">左</button>
+                <button id="move-right-btn">右</button>
+                <button id="move-down-btn">下</button>
+            </div>
+        </div>
+        <div id="start-screen">
+            <h1>ドクターマリオ</h1>
+            <p>画面をタップしてスタート</p>
+            <p>操作方法：<br>
+               ・左右スワイプ：移動<br>
+               ・下スワイプ：落下<br>
+               ・ダブルタップ：回転</p>
+        </div>
+        <div id="game-over-screen" style="display: none;">
+            <h1>ゲームオーバー</h1>
+            <p>スコア: <span id="final-score">0</span></p>
+            <p>画面をタップして再スタート</p>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 

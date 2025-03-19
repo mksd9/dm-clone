@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed; /* Prevent safari bouncing */
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 450px; /* Limit width for better iPhone experience */
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #111;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+#game-ui {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+#game-ui div {
+    margin-bottom: 5px;
+}
+
+#game-controls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    display: none; /* Hide physical buttons, we use touch instead */
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#start-screen, #game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 20;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ff0000;
+    text-shadow: 0 0 5px #ffaaaa;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* iPhone X and newer */
+@supports (padding: max(0px)) {
+    #game-container {
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+}
+
+@media (max-height: 600px) {
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    p {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+} 
